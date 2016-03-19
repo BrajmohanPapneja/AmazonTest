@@ -81,6 +81,8 @@
     //Finally, We need to return the user first n top pages
     self.topPagesAndHits=[[NSMutableArray alloc]init];
     
+    
+    //if total number of top pages requested count is more than the total existing pages
     if ([self.statisticsOfAllPageUrls count]<n) {
         n=(int)[self.statisticsOfAllPageUrls count];
     }
@@ -93,7 +95,7 @@
     
     }
     
-    return self.topPagesAndHits;
+    return self.topPagesAndHits;//top accessed pages
     
     
 }
