@@ -10,5 +10,18 @@
 
 @implementation UrlAndHit
 
+//Initialization method
+-(id)init
+{
+    self=[super init];
+    if(self)
+    {
+        self.pageUrl=nil;
+        self.hit=0;
+        
+    }
+    return self;
+}
+
 @end
 

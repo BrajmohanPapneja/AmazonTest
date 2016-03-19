@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+//This class is created to keep account of the PageUrl and its Respective Hits
 @interface UrlAndHit : NSObject
 
 @property (nonatomic,strong) NSString *pageUrl;

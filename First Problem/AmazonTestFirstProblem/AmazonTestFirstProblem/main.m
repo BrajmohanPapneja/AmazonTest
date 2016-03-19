@@ -35,6 +35,7 @@ int main(int argc, const char * argv[]) {
         [webSiteAnalyzer reportPageAccess:@"www.google.com"];
         [webSiteAnalyzer reportPageAccess:@"www.google.com"];
         [webSiteAnalyzer reportPageAccess:@"www.google.com"];
+        
         [webSiteAnalyzer reportPageAccess:@"www.apple.com"];
 
         NSMutableArray *topPages=[webSiteAnalyzer getTopNPages:2];

@@ -12,6 +12,8 @@
 
 @implementation WebsiteAnalyzer
 
+//Initialization method
+
 -(id)init
 {
     self=[super init];
@@ -24,6 +26,7 @@
 }
 
 
+//reset all page Urls Count to 0
 -(void)resetAllUrlsAndHits
 {
 
@@ -35,6 +38,8 @@
     
 }
 
+//Accessing any specific page and increasing its hit count by 1
+/*Here, Dictionary is chosen because finding any page in Dictionary is compartively faster in array and if that page is accessed by user, its hit count is increased by 1*/
 -(void)reportPageAccess:(NSString *)pageUrl
 {
 
@@ -44,10 +49,8 @@
         hit=[[self.UrlsAndHits valueForKey:pageUrl] intValue];
         hit+=1;
         [self.UrlsAndHits setValue:[NSNumber numberWithInt:hit] forKey:pageUrl];
-         
-         
-    }
     
+    }
     
 }
 
@@ -55,8 +58,10 @@
 -(NSMutableArray *)getTopNPages:(int)n
 {
 
-    self.statistics = [[NSMutableArray alloc]init];
     
+    /*Here, first all pages hits count is added to Array, because now we need to sort the array based on hit counts.
+     */
+    self.statisticsOfAllPageUrls = [[NSMutableArray alloc]init];
     
     for(id key in self.UrlsAndHits)
     {
@@ -64,20 +69,22 @@
         UrlAndHit *urlAndHit = [[UrlAndHit alloc]init];
         urlAndHit.pageUrl=key;
         urlAndHit.hit=[[self.UrlsAndHits valueForKey:key] intValue];
-        [self.statistics addObject:urlAndHit];
+        [self.statisticsOfAllPageUrls addObject:urlAndHit];
 
     }
     
-    NSSortDescriptor* sortOrder = [NSSortDescriptor sortDescriptorWithKey: @"hit"
-                                                                ascending: NO];
-    self.statistics= (NSMutableArray*)[self.statistics sortedArrayUsingDescriptors: [NSArray arrayWithObject: sortOrder]];
-    self.topPagesAndHits=[[NSMutableArray alloc]init];
+    //all page count is sorted based on hit on descending order
+    NSSortDescriptor* sortOrder = [NSSortDescriptor sortDescriptorWithKey: @"hit" ascending: NO];
+    self.statisticsOfAllPageUrls= (NSMutableArray*)[self.statisticsOfAllPageUrls sortedArrayUsingDescriptors: [NSArray arrayWithObject: sortOrder]];
     
+    
+    //Finally, We need to return the user first n top pages
+    self.topPagesAndHits=[[NSMutableArray alloc]init];
     for(int i=0;i<n;i++)
         
     {
     
-        [self.topPagesAndHits addObject:[self.statistics objectAtIndex:i]];
+        [self.topPagesAndHits addObject:[self.statisticsOfAllPageUrls objectAtIndex:i]];
     
     }
     
