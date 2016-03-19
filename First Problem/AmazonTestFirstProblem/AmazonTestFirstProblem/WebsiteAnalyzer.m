@@ -80,6 +80,11 @@
     
     //Finally, We need to return the user first n top pages
     self.topPagesAndHits=[[NSMutableArray alloc]init];
+    
+    if ([self.statisticsOfAllPageUrls count]<n) {
+        n=(int)[self.statisticsOfAllPageUrls count];
+    }
+    
     for(int i=0;i<n;i++)
         
     {
