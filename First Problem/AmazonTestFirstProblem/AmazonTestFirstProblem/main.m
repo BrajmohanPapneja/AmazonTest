@@ -38,8 +38,8 @@ int main(int argc, const char * argv[]) {
         
         [webSiteAnalyzer reportPageAccess:@"www.apple.com"];
 
-        NSMutableArray *topPages=[webSiteAnalyzer getTopNPages:2];
         
+        NSMutableArray *topPages=[webSiteAnalyzer getTopNPages:2];
         
         
         for (UrlAndHit *urlAndHit in topPages) {

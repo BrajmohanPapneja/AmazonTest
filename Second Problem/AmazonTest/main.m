@@ -23,9 +23,15 @@ int main(int argc, const char * argv[]) {
         
         NSMutableArray *numbers = [[NSMutableArray alloc]init];
         
-        [numbers addObject:@"115"];
-        [numbers addObject:@"322"];
-        [numbers addObject:@"200"];
+        [numbers addObject:@"-1"];
+        [numbers addObject:@"-3"];
+        [numbers addObject:@"-2"];
+        [numbers addObject:@"-4"];
+        [numbers addObject:@"8"];
+        
+        
+        //1,2,-8
+        //3,-4
         
         //10,20,30,40,50,60
         //10,30,50
@@ -39,13 +45,21 @@ int main(int argc, const char * argv[]) {
         for (;i<countOfNumbers;i++)
         {
           
+            if([[numbers objectAtIndex:i] intValue]>=0)
             sumOfNumbersInOddPlace+=[[numbers objectAtIndex:i] intValue];
+            
+            
             i++;
             if(i==countOfNumbers)
             break;
+            
+            if([[numbers objectAtIndex:i] intValue]>=0)
             sumOfNumbersInEvenPlace+=[[numbers objectAtIndex:i] intValue];
         
         }
+        
+        
+        
 
         NSLog(@"%d",sumOfNumbersInOddPlace);
 
@@ -59,10 +73,22 @@ int main(int argc, const char * argv[]) {
            sum_Of_subset_Of_Numbers_Whose_Sum_Is_Maximum=sumOfNumbersInOddPlace;
         
         
+        if(sum_Of_subset_Of_Numbers_Whose_Sum_Is_Maximum==0)
+        {
+            i=0;
+            for (;i<countOfNumbers;i++)
+            {
+                if ([[numbers objectAtIndex:i] intValue]<=sum_Of_subset_Of_Numbers_Whose_Sum_Is_Maximum) {
+                    sum_Of_subset_Of_Numbers_Whose_Sum_Is_Maximum=[[numbers objectAtIndex:i] intValue];
+                }
+            
+            }
         
+        }
         
         
         NSLog(@"Sum Of subset Of Numbers Whose Sum Is Maximum=%d",sum_Of_subset_Of_Numbers_Whose_Sum_Is_Maximum);
+        
     }
     
     
