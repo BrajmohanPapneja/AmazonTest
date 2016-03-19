@@ -70,12 +70,19 @@
     
     NSSortDescriptor* sortOrder = [NSSortDescriptor sortDescriptorWithKey: @"hit"
                                                                 ascending: NO];
-   self.statistics= (NSMutableArray*)[self.statistics sortedArrayUsingDescriptors: [NSArray arrayWithObject: sortOrder]];
+    self.statistics= (NSMutableArray*)[self.statistics sortedArrayUsingDescriptors: [NSArray arrayWithObject: sortOrder]];
+    self.topPagesAndHits=[[NSMutableArray alloc]init];
+    
+    for(int i=0;i<n;i++)
+        
+    {
+    
+        [self.topPagesAndHits addObject:[self.statistics objectAtIndex:i]];
+    
+    }
+    
+    return self.topPagesAndHits;
     
     
-    
-    
-    
-    return self.statistics;
 }
 @end

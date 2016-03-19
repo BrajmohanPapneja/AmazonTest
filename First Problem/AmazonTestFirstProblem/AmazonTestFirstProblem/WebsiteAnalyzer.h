@@ -15,6 +15,9 @@
 
 @property (nonatomic,strong) NSMutableArray <UrlAndHit*> *statistics;
 
+@property (nonatomic,strong) NSMutableArray <UrlAndHit*> *topPagesAndHits;
+
+
 
 
 -(void)reportPageAccess:(NSString *)pageUrl ;
