@@ -24,7 +24,4 @@
 -(NSMutableArray *)getTopNPages:(int)n;
 
 
-//reset all pageUrl Counts to 0
--(void)resetAllUrlsAndHits;
-
 @end

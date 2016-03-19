@@ -29,7 +29,7 @@ int main(int argc, const char * argv[]) {
 
         
         WebsiteAnalyzer *webSiteAnalyzer= [[WebsiteAnalyzer alloc]init];
-        [webSiteAnalyzer resetAllUrlsAndHits];
+        //[webSiteAnalyzer resetAllUrlsAndHits];
         
         
         [webSiteAnalyzer reportPageAccess:@"www.google.com"];

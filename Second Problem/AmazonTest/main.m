@@ -23,11 +23,11 @@ int main(int argc, const char * argv[]) {
         
         NSMutableArray *numbers = [[NSMutableArray alloc]init];
         
-        [numbers addObject:@"-1"];
+        [numbers addObject:@"71"];
         [numbers addObject:@"-3"];
-        [numbers addObject:@"-2"];
+        [numbers addObject:@"2"];
         [numbers addObject:@"-4"];
-        [numbers addObject:@"8"];
+        [numbers addObject:@"-8"];
         
         
         //1,2,-8
@@ -76,14 +76,16 @@ int main(int argc, const char * argv[]) {
         if(sum_Of_subset_Of_Numbers_Whose_Sum_Is_Maximum==0)
         {
             i=0;
+            int max=[[numbers objectAtIndex:0] intValue];
             for (;i<countOfNumbers;i++)
             {
-                if ([[numbers objectAtIndex:i] intValue]<=sum_Of_subset_Of_Numbers_Whose_Sum_Is_Maximum) {
-                    sum_Of_subset_Of_Numbers_Whose_Sum_Is_Maximum=[[numbers objectAtIndex:i] intValue];
+                if ([[numbers objectAtIndex:i] intValue]>=max) {
+                    max=[[numbers objectAtIndex:i] intValue];
                 }
             
             }
-        
+            
+            sum_Of_subset_Of_Numbers_Whose_Sum_Is_Maximum=max;
         }
         
         

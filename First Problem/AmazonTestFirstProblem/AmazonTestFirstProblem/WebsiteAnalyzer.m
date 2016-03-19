@@ -19,24 +19,14 @@
     self=[super init];
     if(self)
     {
-        self.UrlsAndHits=nil;
+        self.UrlsAndHits=[[NSMutableDictionary alloc]init];
         
     }
     return self;
 }
 
 
-//reset all page Urls Count to 0
--(void)resetAllUrlsAndHits
-{
 
-    self.UrlsAndHits=[[NSMutableDictionary alloc]initWithObjectsAndKeys:
-                      [NSNumber numberWithInt:0],@"www.google.com",
-                      [NSNumber numberWithInt:0],@"www.facebook.com",
-                     [NSNumber numberWithInt:0],@"www.amazon.com",
-                    [NSNumber numberWithInt:0], @"www.apple.com",nil];
-    
-}
 
 //Accessing any specific page and increasing its hit count by 1
 /*Here, Dictionary is chosen because finding any page in Dictionary is compartively faster in array and if that page is accessed by user, its hit count is increased by 1*/
@@ -49,6 +39,11 @@
         hit=[[self.UrlsAndHits valueForKey:pageUrl] intValue];
         hit+=1;
         [self.UrlsAndHits setValue:[NSNumber numberWithInt:hit] forKey:pageUrl];
+    
+    }
+    else{
+    
+        [self.UrlsAndHits setValue:[NSNumber numberWithInt:1] forKey:pageUrl];
     
     }
     
